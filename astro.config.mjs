@@ -6,7 +6,12 @@ import { remarkReadingTime } from './src/utils/readTime.ts'
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://blog-template-gray.vercel.app/', // Write here your website url
+	site: 'https://ohmyresume.com', // Update this to your main site URL
+	base: '/blogs', // Add this line to set the base path
+	outDir: './dist/blogs', // Optionally specify the output directory
+	build: {
+		assets: '_astro' // Ensure consistent asset directory naming
+	},
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 		drafts: true,
@@ -21,8 +26,8 @@ export default defineConfig({
 			shikiConfig: {
 				experimentalThemes: {
 					light: 'vitesse-light',
-					dark: 'material-theme-palenight',
-				  },
+					dark: 'material-theme-palenight'
+				},
 				wrap: true
 			},
 			drafts: true
