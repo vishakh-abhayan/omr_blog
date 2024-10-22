@@ -9,9 +9,10 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-	author: 'DanielCG', // Site author
-	title: 'Astro Theme OpenBlog', // Site title.
-	description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', // Description to display in the meta tags
+	author: 'Vishakh Abhayan', // Site author
+	title: 'Oh My Resume - Best AI Resume Builder | Articals,Tutorials and Blogs', // Site title.
+	description:
+		'Create a professional resume in minutes with our AI-driven chat-based resume builder. Tailored for job seekers, powered by advanced AI technology', // Description to display in the meta tags
 	lang: 'en-GB',
 	ogLocale: 'en_GB',
 	shareMessage: 'Share this post', // Message to share a post on social media

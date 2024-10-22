@@ -7,8 +7,7 @@ import { remarkReadingTime } from './src/utils/readTime.ts'
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://ohmyresume.com', // Update this to your main site URL
-	base: '/blogs', // Add this line to set the base path
-	outDir: './dist/blogs', // Optionally specify the output directory
+	outDir: './dist', // Optionally specify the output directory
 	build: {
 		assets: '_astro' // Ensure consistent asset directory naming
 	},
