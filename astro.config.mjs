@@ -6,7 +6,7 @@ import { remarkReadingTime } from './src/utils/readTime.ts'
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://ohmyresume.com', // Update this to your main site URL
+	site: 'https://blog.ohmyresume.com', // Update this to your main site URL
 	outDir: './dist', // Optionally specify the output directory
 	build: {
 		assets: '_astro' // Ensure consistent asset directory naming
@@ -31,7 +31,22 @@ export default defineConfig({
 			},
 			drafts: true
 		}),
-		sitemap(),
+		sitemap({
+			serialize(item) {
+				if (/tags/.test(item.url)) {
+					return undefined
+				}
+				if (/category/.test(item.url)) {
+					return undefined
+				}
+				if (/post/.test(item.url)) {
+					item.changefreq = 'weekly'
+					item.lastmod = new Date()
+					item.priority = 0.5
+				}
+				return item
+			}
+		}),
 		tailwind()
 	]
 })
