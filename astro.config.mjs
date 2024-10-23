@@ -4,10 +4,14 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import { remarkReadingTime } from './src/utils/readTime.ts'
 
+import vercel from '@astrojs/vercel/serverless'
+
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://ohmyresume.com', // Update this to your main site URL
-	outDir: './dist', // Optionally specify the output directory
+	site: 'https://ohmyresume.com',
+	// Update this to your main site URL
+	outDir: './dist',
+	// Optionally specify the output directory
 	build: {
 		assets: '_astro' // Ensure consistent asset directory naming
 	},
@@ -33,5 +37,11 @@ export default defineConfig({
 		}),
 		sitemap(),
 		tailwind()
-	]
+	],
+	output: 'server',
+	adapter: vercel({
+		webAnalytics: {
+			enabled: true
+		}
+	})
 })
